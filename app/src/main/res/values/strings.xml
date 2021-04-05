@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MobileSecurityHW1</string>
+    <string name="login_STR_password">Insert Password Here</string>
+    <string name="login_STR_submit">Submit</string>
+</resources>
