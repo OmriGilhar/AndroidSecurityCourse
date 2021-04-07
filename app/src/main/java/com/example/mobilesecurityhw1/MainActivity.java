@@ -84,11 +84,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private int getPhoneBrightness() {
-        int brightness = Settings.System.getInt(
+        // In different phone there are different ranges of brightnesses, please note that in our
+        // tests we conclude that this range scales between 0 - 255 but in our  AVD Pixel 4 the
+        // range was from 10 - 255, we decided to left it has is with a Logging message to show the
+        // current brightness to the testers
+        int brightness =  Settings.System.getInt(
                 this.getContentResolver(),
-                Settings.System.SCREEN_BRIGHTNESS, 0
+                Settings.System.SCREEN_BRIGHTNESS,
+                0
         );
-        return (int)(((float)brightness*2)/5.1f);
+        Log.println(Log.INFO, "brightness", "The current brightness is: " + brightness);
+        return brightness;
     }
 
     private boolean isPhoneMuted() {
